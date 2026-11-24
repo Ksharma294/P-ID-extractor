@@ -28,6 +28,10 @@ jobs:
     - name: Build APK with Buildozer
       run: |
         export ANDROID_HOME=$HOME/.buildozer/android/platform/android-sdk
+        export ANDROID_SDK_ROOT=$ANDROID_HOME
+        # Auto-accept Android SDK licenses
+        yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null 2>&1 || true
+        yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses > /dev/null 2>&1 || true
         buildozer -v android debug
         
     - name: Upload APK

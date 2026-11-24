@@ -11,8 +11,8 @@ jobs:
     
     - name: Install libtinfo5 workaround
       run: |
-        wget http://security.ubuntu.com/ubuntu/pool/universe/n/ncurses/libtinfo5_6.3-2ubuntu0.1_amd64.deb
-        sudo apt install ./libtinfo5_6.3-2ubuntu0.1_amd64.deb
+        wget http://ftp.us.debian.org/debian/pool/main/n/ncurses/libtinfo5_6.4-4_amd64.deb
+        sudo dpkg -i libtinfo5_6.4-4_amd64.deb
         
     - name: Set up Python
       uses: actions/setup-python@v5
